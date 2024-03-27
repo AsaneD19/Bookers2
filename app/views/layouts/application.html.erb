@@ -73,7 +73,10 @@
     </header>
 
     <main>
-      <%= flash[:notice] %>
+      <p class="notice"><%= notice %></p>
+      <% if flash[:alert] %>
+        <%= render 'layouts/alert_message' %>
+      <% end %>
       <%= yield %>
     </main>
 
