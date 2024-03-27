@@ -5,6 +5,9 @@ class BooksController < ApplicationController
   end
 
   def show
+    @book = Book.find(params[:id])
+    @user = current_user
+    @new_book = Book.new
   end
 
   def edit
@@ -19,9 +22,9 @@ class BooksController < ApplicationController
       render user_path(current_user)
     end
   end
+end
 
-  private
-  def book_params
-    params.require(:book).permit(:title, :body)
-  end
+private
+def book_params
+  params.require(:book).permit(:title, :body)
 end

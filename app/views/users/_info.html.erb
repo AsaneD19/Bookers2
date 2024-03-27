@@ -1,0 +1,22 @@
+<h1>User info</h1>
+<%= image_tag user.get_profile_image(100,100) %>
+
+<table class="table">
+  <tbody>
+    <tr>
+      <th>name</th>
+      <th><%= user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= user.introduction %></th>
+    </tr>
+
+  </tbody>
+</table>
+
+<div class="row">
+  <a class="btn btn-outline-secondary btn-block btn-sm" href=<%= edit_user_path(user.id) %>>
+    <i class="fa-solid fa-user-gear" style="color: #6c757d;"></i>
+  </a>
+</div>

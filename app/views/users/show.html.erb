@@ -1,37 +1,14 @@
-<h1>User info</h1>
-<%= image_tag @user.get_profile_image(100,100) %>
+<div class="container">
 
-<table class="table">
-  <tbody>
-    <tr>
-      <th>name</th>
-      <th><%= @user.name %></th>
-    </tr>
-    <tr>
-      <th>introduction</th>
-      <th><%= @user.introduction %></th>
-    </tr>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'info', user: @user %>
+      <%= render 'books/new_book', new_book: @new_book %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <%= render 'books/list', books: @books, user: @user %>
+    </div>
 
-  </tbody>
-</table>
-
-<div class="row">
-  <a class="btn btn-outline-secondary btn-block btn-sm" href=<%= edit_user_path %>>
-    <i class="fa-solid fa-user-gear" style="color: #6c757d;"></i>
-  </a>
-</div>
-
-<h1>New book</h1>
-<div>
-  <%= form_with model: @book, url: books_path, method: :post do |f| %>
-
-    <p>Title</p>
-    <%= f.text_field :title %>
-    <br>
-    <p>Opinion</p>
-    <%= f.text_area :body %>
-    <br>
-    <%= f.submit 'Create Book', class: "btn btn-sm btn-success" %>
-  <% end %>
+  </div>
 
 </div>
