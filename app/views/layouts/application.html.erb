@@ -12,82 +12,16 @@
 
   <body>
     <header>
-
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <a class="navbar-brand text-light" href=<%= root_path %> >Bookers</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
-
-              <li class="nav-item">
-                <%= link_to(root_path, class: 'nav-link text-light') do %>
-                  <i class="fa-solid fa-house" style="color: #ffffff;"></i> Home
-                <% end %>
-              </li>
-
-              <% if user_signed_in? %>
-                <li class="nav-item">
-                  <%= link_to(users_path, class: 'nav-link text-light') do %>
-                    <i class="fa-solid fa-users" style="color: #ffffff;"></i> Users
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to(books_path, class: 'nav-link text-light') do %>
-                    <i class="fa-solid fa-book-open" style="color: #ffffff;"></i> Books
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to(destroy_user_session_path, method: :delete, class: 'nav-link text-light') do %>
-                    <i class="fa-solid fa-right-from-bracket" style="color: #ffffff;"></i> Log out
-                  <% end %>
-                </li>
-
-              <% else %>
-
-                <li class="nav-item">
-                  <%= link_to(about_path, class: 'nav-link text-light') do %>
-                    <i class="fa-solid fa-link" style="color: #ffffff;"></i> About
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to(new_user_registration_path, class: 'nav-link text-light') do %>
-                    <i class="fa-solid fa-user-plus" style="color: #ffffff;"></i> Sign up
-                  <% end %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to(new_user_session_path, class: 'nav-link text-light') do %>
-                    <i class="fa-solid fa-right-to-bracket" style="color: #ffffff;"></i> Log in
-                  <% end %>
-                </li>
-              <% end %>
-
-            </ul>
-          </div>
-        </div>
-      </nav>
-
+      <%= render 'layouts/nav_bar' %>
     </header>
 
     <main>
       <p class="notice"><%= notice %></p>
-      <% if flash[:alert] %>
-        <%= render 'layouts/alert_message' %>
-      <% end %>
       <%= yield %>
     </main>
 
     <footer>
-      <div class="container mt-5">
-        <div class="row">
-          <div class="mx-auto">
-            <p>CopyRight Infratop.inc</p>
-          </div>
-        </div>
-      </div>
+      <%= render 'layouts/footer' %>
     </footer>
   </body>
 </html>

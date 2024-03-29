@@ -1,3 +1,7 @@
+<% if @new_book.errors.any? %>
+  <%= render 'layouts/error_message', error_obj: @new_book %>
+<% end %>
+
 <div class="container">
   <div class="row">
     <div class="col-md-3">

@@ -1,17 +1,24 @@
-<h1>Editing Book</h1>
-<div>
-  <%= form_with model: @book, url: book_path, method: :patch do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-8 mx-auto">
+      <h1>Editing Book</h1>
+      <% if @edit_book.errors.any? %>
+        <%= render 'layouts/error_message', error_obj: @edit_book %>
+      <% end %>
 
-    <p>Title</p>
-    <%= f.text_field :title %>
-    <br>
-    <p>Opinion</p>
-    <%= f.text_area :body %>
-    <br>
-    <%= f.submit 'Update Book', class: "btn btn-sm btn-success" %>
-  <% end %>
+      <%= form_with model: @edit_book, url: book_path, method: :patch do |f| %>
+        <p>Title</p>
+        <%= f.text_field :title %>
+        <br>
+        <p>Opinion</p>
+        <%= f.text_area :body %>
+        <br>
+        <%= f.submit 'Update Book', class: "btn btn-sm btn-success" %>
+      <% end %>
 
-  <%= link_to "Show", book_path(@book.id) %>
-  |
-  <%= link_to "back", books_path %>
+      <%= link_to "Show", book_path(@edit_book.id) %>
+      |
+      <%= link_to "back", books_path %>
+    </div>
+  </div>
 </div>

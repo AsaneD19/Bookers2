@@ -1,5 +1,8 @@
-<div class="container">
+<% if @new_book.errors.any? %>
+  <%= render 'layouts/error_message', error_obj: @new_book %>
+<% end %>
 
+<div class="container">
   <div class="row">
     <div class="col-md-3">
       <%= render 'layouts/left_bar', user: @user, new_book: @new_book %>
@@ -7,8 +10,6 @@
     <div class="col-md-8 offset-md-1">
       <%= render 'books/list', books: @books %>
     </div>
-
   </div>
-
 </div>
 

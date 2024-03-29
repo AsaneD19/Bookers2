@@ -11,13 +11,11 @@
       <th>introduction</th>
       <th><%= user.introduction %></th>
     </tr>
-
   </tbody>
 </table>
 
 <div class="row">
   <%= link_to(edit_user_path(user), class: "btn btn-outline-secondary btn-block btn-sm") do %>
-  <!-- <a class="btn btn-outline-secondary btn-block btn-sm" href=<%= edit_user_path(current_user) %>> -->
     <i class="fa-solid fa-user-gear" style="color: #6c757d;"></i>
   <% end %>
   </a>
